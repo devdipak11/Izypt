@@ -490,9 +490,19 @@ const Home: React.FC = () => {
             </div>
             {/* Veg Section */}
             <div className="mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-semibold text-base text-green-700">Vegetarian Favorites</span>
-                <span className="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-base text-green-700">Vegetarian Favorites</span>
+                  <span className="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                </div>
+                {/* See All button moved to right */}
+                <button
+                  className="text-xs text-app-primary bg-app-primary/10 px-2 py-1 rounded-full hover:bg-app-primary/20 transition"
+                  onClick={() => navigate('/all-dishes?q=veg')}
+                  aria-label="See all vegetarian dishes"
+                >
+                  See All
+                </button>
               </div>
               {loading ? (
                 <div className="grid grid-cols-2 gap-4">
@@ -532,9 +542,19 @@ const Home: React.FC = () => {
             </div>
             {/* Non Veg Section */}
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-semibold text-base text-red-700">Signature Non-Veg Delights</span>
-                <span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-base text-red-700">Signature Non-Veg Delights</span>
+                  <span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                </div>
+                {/* See All button for non-veg dishes */}
+                <button
+                  className="text-xs text-app-primary bg-app-primary/10 px-2 py-1 rounded-full hover:bg-app-primary/20 transition"
+                  onClick={() => navigate('/all-dishes?q=non-veg')}
+                  aria-label="See all non-veg dishes"
+                >
+                  See All
+                </button>
               </div>
               {loading ? (
                 <div className="grid grid-cols-2 gap-4">
@@ -580,7 +600,17 @@ const Home: React.FC = () => {
             <div key={section._id} className="p-4">
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-lg font-bold text-gray-800">{section.name}</h2>
-                <span className="text-xs text-gray-500">{section.products.length} product{section.products.length !== 1 ? 's' : ''}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-500">{section.products.length} product{section.products.length !== 1 ? 's' : ''}</span>
+                  {/* See All button for section */}
+                  <button
+                    className="text-xs text-app-primary bg-app-primary/10 px-2 py-1 rounded-full hover:bg-app-primary/20 transition"
+                    onClick={() => navigate(`/all-products?section=${section._id}`)}
+                    aria-label={`See all products in ${section.name}`}
+                  >
+                    See All
+                  </button>
+                </div>
               </div>
               <div className="flex overflow-x-auto gap-3 pb-2 no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {/* Hide scrollbar for Webkit browsers */}

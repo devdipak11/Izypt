@@ -14,6 +14,7 @@ import MyPickups from "./pages/MyPickups";
 import Favorites from "./pages/Favorites";
 import TrackOrder from './pages/TrackOrder';
 import FeedPeople from "./pages/FeedPeople";
+import AllProductsPage from "./pages/AllProductsPage";
 
 // Pages
 import Home from "./pages/Home";
@@ -113,6 +114,7 @@ const App = () => (
                 <Route path="/promos" element={<PromoCode />} />
                 <Route path="/all-dishes" element={<AllDishesPage />} />
                 <Route path="/registration-pending" element={<RegistrationPending />} />
+                <Route path="/all-products" element={<AllProductsPage />} />
                 
                 {/* Customer Routes */}
                 <Route path="/search" element={<SearchPage />} />
